@@ -1,1 +1,5 @@
-export class CreateRoomDto {}
+export class CreateRoomDto {
+  name: string;
+  capacity: number;
+  equipment?: string[];
+}
