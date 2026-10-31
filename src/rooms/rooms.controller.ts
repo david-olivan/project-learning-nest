@@ -7,6 +7,8 @@ import {
   Param,
   Delete,
   ParseUUIDPipe,
+  HttpCode,
+  HttpStatus,
 } from '@nestjs/common';
 import { RoomsService } from './rooms.service.js';
 import { CreateRoomDto } from './dto/create-room.dto.js';
@@ -32,12 +34,16 @@ export class RoomsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateRoomDto: UpdateRoomDto) {
-    return this.roomsService.update(+id, updateRoomDto);
+  update(
+    @Param('id', new ParseUUIDPipe()) id: string,
+    @Body() updateRoomDto: UpdateRoomDto,
+  ) {
+    return this.roomsService.update(id, updateRoomDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.roomsService.remove(+id);
+  @HttpCode(HttpStatus.NO_CONTENT)
+  remove(@Param('id', new ParseUUIDPipe()) id: string) {
+    return this.roomsService.remove(id);
   }
 }

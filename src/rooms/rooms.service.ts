@@ -37,11 +37,25 @@ export class RoomsService {
     return structuredClone(targetRoom);
   }
 
-  update(id: number, updateRoomDto: UpdateRoomDto) {
-    return `This action updates a #${id} room`;
+  update(id: string, updateRoomDto: UpdateRoomDto): Room {
+    const targetRoom = this.getRoomOrThrow(id);
+    if (updateRoomDto.name !== undefined) {
+      targetRoom.name = updateRoomDto.name;
+    }
+    if (updateRoomDto.capacity !== undefined) {
+      targetRoom.capacity = updateRoomDto.capacity;
+    }
+    if (updateRoomDto.equipment !== undefined) {
+      targetRoom.equipment = updateRoomDto.equipment;
+    }
+    if (updateRoomDto.isActive !== undefined) {
+      targetRoom.isActive = updateRoomDto.isActive;
+    }
+    return structuredClone(targetRoom);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} room`;
+  remove(id: string): void {
+    const targetRoom = this.getRoomOrThrow(id);
+    this.rooms.splice(this.rooms.indexOf(targetRoom), 1);
   }
 }
