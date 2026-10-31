@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  ParseUUIDPipe,
 } from '@nestjs/common';
 import { RoomsService } from './rooms.service.js';
 import { CreateRoomDto } from './dto/create-room.dto.js';
@@ -26,8 +27,8 @@ export class RoomsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.roomsService.findOne(+id);
+  findOne(@Param('id', new ParseUUIDPipe()) id: string) {
+    return this.roomsService.findOne(id);
   }
 
   @Patch(':id')
