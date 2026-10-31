@@ -12,7 +12,7 @@ Stack actual: NestJS 12, TypeScript, ESM (`"type": "module"`), Vitest, oxlint, P
 
 - Es CTO y necesita coger velocidad con Nest rápido. **Apretar**: reviews con nivel de equipo exigente, sin regalar aprobaciones.
 - Mucho JavaScript, algo de TypeScript (reforzar tipos, genéricos, decoradores cuando salgan). Nest desde cero.
-- SQL a fondo (en el trabajo: AWS Aurora/RDS, y DynamoDB para algunas cosas). No explicarle SQL; sí cómo lo encaja Nest (ORM, migraciones, transacciones).
+- SQL a fondo (en el trabajo: AWS Aurora/RDS con MySQL y PostgreSQL, y DynamoDB para algunas cosas). Aquí usamos **PostgreSQL**. No explicarle SQL; sí cómo lo encaja Nest (ORM, migraciones, transacciones).
 - En el trabajo el frontend usa SSO de Microsoft (Entra ID): la auth de esta API debe acabar validando tokens de Entra ID.
 - Nube del trabajo: AWS. CI/CD del trabajo: Azure DevOps (aquí usamos GitHub Actions; señalar equivalencias cuando aporten).
 
